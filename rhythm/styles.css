@@ -15,8 +15,7 @@ body {
 }
 
 .keys {
-    display: flex;
-    justify-content: center;
+    display:block;   
 }
 
 .key {
@@ -27,6 +26,7 @@ body {
     margin: 10px;
     width: 80px;
     height: 80px;
+    display:inline-block;
     font-size: 24px;
     transition: background-color 0.1s, transform 0.1s;
     opacity: 0.3; /* 초기 상태의 투명도 설정 */
