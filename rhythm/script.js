@@ -17,7 +17,7 @@ function startAudio() {
     source.connect(analyser);
     analyser.connect(audioContext.destination);
 
-    analyser.fftSize = 2048;
+    analyser.fftSize = 1024;
     dataArray = new Uint8Array(analyser.frequencyBinCount);
 
     audio.play();
@@ -36,7 +36,7 @@ function analyzeAudio() {
 }
 
 function getPatternIndex(data) {
-    const threshold = 150; // 패턴 감지 임계값
+    const threshold = 128; // 패턴 감지 임계값
     for (let i = 0; i < data.length; i++) {
         if (data[i] > threshold) {
             return i % keys.length; // 키 개수에 맞춰 인덱스 조정
@@ -50,5 +50,5 @@ function highlightKey(index) {
     key.classList.add('active');
     setTimeout(() => {
         key.classList.remove('active');
-    }, 300); // 0.3초 동안 강조
+    }, 100); // 0.3초 동안 강조
 }

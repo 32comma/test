@@ -8,6 +8,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/15.1.2/Tone.js">
 
     </script>
+    <style>
+        body{
+            filter:invert(1);
+            background-color:black;
+        }
+    </style>
 </head>
 
 <body>
@@ -112,7 +118,7 @@
                 console.log(keys[note.innerHTML.charAt(i)]);
                 array.push(keys[note.innerHTML.charAt(i)])
             }
-            synth.triggerAttackRelease(array, '8n');
+            synth.triggerAttackRelease(array, '16n');
             if (note != null) {
                 // note.animate(keyframes, options).finished.then(() => {
                 note.remove();
