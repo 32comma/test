@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/15.1.2/Tone.js">
+
+    </script>
+    <style>
+        body {
+            filter: invert(1);
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root">
+
+    </div>
+    <script>
+        const synth = new Tone.Sampler({
+            urls: {
+                "A0": "./sound/1.mp3",
+                "A#0": "./sound/2.mp3",
+                "B0": "./sound/3.mp3",
+                "C1": "./sound/4.mp3",
+                "C#1": "./sound/5.mp3",
+                "D1": "./sound/6.mp3",
+                "D#1": "./sound/7.mp3",
+                "E1": "./sound/8.mp3",
+                "F1": "./sound/9.mp3",
+                "F#1": "./sound/10.mp3",
+                "G1": "./sound/11.mp3",
+                "G#1": "./sound/12.mp3",
+                "A1": "./sound/13.mp3",
+                "A#1": "./sound/14.mp3",
+                "B1": "./sound/15.mp3",
+                "C2": "./sound/16.mp3",
+                "C#2": "./sound/17.mp3",
+                "D2": "./sound/18.mp3",
+                "D#2": "./sound/19.mp3",
+                "E2": "./sound/20.mp3",
+                "F2": "./sound/21.mp3",
+                "F#2": "./sound/22.mp3",
+                "G2": "./sound/23.mp3",
+                "G#2": "./sound/24.mp3",
+                "A2": "./sound/25.mp3",
+                "A#2": "./sound/26.mp3",
+                "B2": "./sound/27.mp3",
+                "C3": "./sound/28.mp3",
+                "C#3": "./sound/29.mp3",
+                "D3": "./sound/30.mp3",
+                "D#3": "./sound/31.mp3",
+                "E3": "./sound/32.mp3",
+                "F3": "./sound/33.mp3",
+                "F#3": "./sound/34.mp3",
+                "G3": "./sound/35.mp3",
+                "G#3": "./sound/36.mp3",
+                "A3": "./sound/37.mp3",
+                "A#3": "./sound/38.mp3",
+                "B3": "./sound/39.mp3",
+                "C4": "./sound/40.mp3",
+                "C#4": "./sound/41.mp3",
+                "D4": "./sound/42.mp3",
+                "D#4": "./sound/43.mp3",
+                "E4": "./sound/44.mp3",
+                "F4": "./sound/45.mp3",
+                "F#4": "./sound/46.mp3",
+                "G4": "./sound/47.mp3",
+                "G#4": "./sound/48.mp3",
+                "A4": "./sound/49.mp3",
+                "A#4": "./sound/50.mp3",
+                "B4": "./sound/51.mp3",
+                "C5": "./sound/52.mp3",
+                "C#5": "./sound/53.mp3",
+                "D5": "./sound/54.mp3",
+                "D#5": "./sound/55.mp3",
+                "E5": "./sound/56.mp3",
+                "F5": "./sound/57.mp3",
+                "F#5": "./sound/58.mp3",
+                "G5": "./sound/59.mp3",
+                "G#5": "./sound/60.mp3",
+                "A5": "./sound/61.mp3",
+                "A#5": "./sound/62.mp3",
+                "B5": "./sound/63.mp3",
+                "C6": "./sound/64.mp3",
+                "C#6": "./sound/65.mp3",
+                "D6": "./sound/66.mp3",
+                "D#6": "./sound/67.mp3",
+                "E6": "./sound/68.mp3",
+                "F6": "./sound/69.mp3",
+                "F#6": "./sound/70.mp3",
+                "G6": "./sound/71.mp3",
+                "G#6": "./sound/72.mp3",
+                "A6": "./sound/73.mp3",
+                "A#6": "./sound/74.mp3",
+                "B6": "./sound/75.mp3",
+                "C7": "./sound/76.mp3",
+                "C#7": "./sound/77.mp3",
+                "D7": "./sound/78.mp3",
+                "D#7": "./sound/79.mp3",
+                "E7": "./sound/80.mp3",
+                "F7": "./sound/81.mp3",
+                "F#7": "./sound/82.mp3",
+                "G7": "./sound/83.mp3",
+                "G#7": "./sound/84.mp3",
+                "A7": "./sound/85.mp3",
+                "A#7": "./sound/86.mp3",
+                "B7": "./sound/87.mp3",
+                "C8": "./sound/88.mp3",
+            },// envelope: {
+            //     attack: 0.1,    // 소리가 빠르게 시작
+            //     decay: 0.3,     // 일정 시간 동안 감소
+            //     sustain: 1,     // 지속 시간 최대
+            //     release: 3      // 키를 떼면 3초 동안 소리가 서서히 사라짐
+            // },
+            onload: () => {
+                console.log("All samples loaded");
+            }
+        }).toDestination();
+        const now = Tone.now();
+        const keys = {
+            '1': 'C2',
+            '!': 'C#2',
+            '2': 'D2',
+            '@': 'D#2',
+            '3': 'E2',
+            '4': 'F2',
+            '$': 'F#2',
+            '5': 'G2',
+            '%': 'G#2',
+            '6': 'A2',
+            '^': 'A#2',
+            '7': 'B2',
+            '8': 'C3',
+            '*': 'C#3',
+            '9': 'D3',
+            '(': 'D#3',
+            '0': 'E3',
+            'q': 'F3',
+            'Q': 'F#3',
+            'w': 'G3',
+            'W': 'G#3',
+            'e': 'A3',
+            'E': 'A#3',
+            'r': 'B3',
+            't': 'C4',
+            'T': 'C#4',
+            'y': 'D4',
+            'Y': 'D#4',
+            'u': 'E4',
+            'i': 'F4',
+            'I': 'F#4',
+            'o': 'G4',
+            'O': 'G#4',
+            'p': 'A4',
+            'P': 'A#4',
+            'a': 'B4',
+            's': 'C5',
+            'S': 'C#5',
+            'd': 'D5',
+            'D': 'D#5',
+            'f': 'E5',
+            'g': 'F5',
+            'G': 'F#5',
+            'h': 'G5',
+            'H': 'G#5',
+            'j': 'A5',
+            'J': 'A#5',
+            'k': 'B5',
+            'l': 'C6',
+            'L': 'C#6',
+            'z': 'D6',
+            'Z': 'D#6',
+            'x': 'E6',
+            'c': 'F6',
+            'C': 'F#6',
+            'v': 'G6',
+            'V': 'G#6',
+            'b': 'A6',
+            'B': 'A#6',
+            'n': 'B6',
+            'm': 'C7',
+            'N': 'C#7',
+        }
+        let keyframes = [
+            { opacity: 1 },
+            { opacity: 0.2 },
+            { opacity: 0 }
+        ]
+        let options = {
+            delay: 0,
+            duration: 250,
+            easing: "ease-in",
+            iterations: 1,
+            fill: "forwards"
+        }
+        let str = `
+[sf] [dg] [sf] [dg] [sf] [dg] [ad] [sf] [ad] [sf] [ad] [sf] [ps] [ad] [ps] [ad] [ps] [ad] [Oa] [Ip] [Ou] 3 7 W r u O a H k x V n f j l [yg] j x [psf] x [uf] H z [Oadl] k [es] f l u a s p s u j l x [yj] l b [pg] b [ol] z b [kv] g [jc] [th] k v o s l k h f s f k x v [In] f a j b [rv] p [IC] D v [uj] k b d a h v [Gy] h C a o f x [tf] h z o [sl] d z [rpf] G j x I [dz] p j [0a] f k r 0 e r u u p a f f j k x x b n [30] 0 [Wri] n  m n u n  m n b b V c x b V c x c x z l k z [yl] k j j h g f h g f g f d s a [td] s a p O i u p O i O i u y i O [ry] t r e t r e W 0 9 8 7 [36] [0etu] [0etu] 3 [0etu] [0etu] 3 $ 6 [0etu] [0etu] [30u] [etp] [etus] i [9f] [ip] [etu] f [ip] [3d] [Ou] s [Ou] [W0rya] [Ou] [6s] [tu] r [tu] e [tu] [6p] s [etuo] f s f [2j] [psg] [eti] j [psg] [5j] [ad] h [ad] [ryog] [ad] h f a o i u w r u a f h [$k] [asf] [asf] [asf] [Qetuj] [psf] [7h] [Doa] [Ge] [IDa] [Yh] [Doa] [3j] [pad] [pad] [pad] [ruh] [oad] [G2] [Ioa] [Ioa] [Ioa] [wruf] [uoa] [8d] [wuo] [ts] [yuo] [td] [wuo] [7f] [Ieup] [Qd] [Iy] p [Iy] [3a] r u O p a f H j k x V [O0rkxn] [pj] [Wru] [sl] [2f] g j x [fgj] [etyi] [fgjx] [H3dfz] [Hsfl] [W0ru] [Hafk] [6sfhl] [etusfh] [etusfh] [Ewyipj] [sl] [Ewtu] [fx] [4j] l x b [eti] [etijlxb] [5j] z c b [wryikn] [wryihv] [gc] [8hkxv] [wru] [wru] [5a] f h k [wrufx] [wruhv] [$k] l x n [Qetu] [Qetujb] 7 [YIerhv] [GC] [YIergc] [GC] [3jkzb] [wru] [wruhv] 2 [Gwru] h k C [fx] [DZwru] [fx] [fhkx] [wtu] [dz] [wtusl] [DGpak] [YIer] [SL] [YIDZer] [3f] H k x [37] 0 Q W [37r] [O370uaf] 3 0 r u [Of] [wg] e t i f [5id] 9 [wus] [ya] [8us] w [td] y f [yuo] t [ro] [wetpg] i o f o [wid] [us] t [id] [8u] o a f w t y s a o u y t f [0f] G f [Dwru] [wruf] [0h] w [Gr] u f [QD] e t Y [IG] [ra] Y I a s a P a [0k] r o a k [0a] f h k r [Gj] p [afh] p [QGs] Y I p D s p I Y t [ea] [OH0] W r I [OHi] u [OHy] r [Wpj] q [0ak] 7 [6sfjl] 0 r e [0et] 8 [6e] 8 0 w [QIG2] 6 9 Q [IGe] u [IGyps] e [Qosfh] 9 [6psfj] 2 [5a] d h k 9 w e r y [pad] o [ypdj] r [eoh] w [*I] a G W [rig] y [IG] [$p] S f j [QETPSuoh] [IPSG] [7u] I p f Q [YIDrp] Q [7uf] Q [IG7a] ( Q e [ak] [26dgjkz] q e [ysfjl] [26adgk] 9 q e p s f j [OH37ad] [ak] [W0rudz] [fx] [dz] [W0rusl] 3 [W0rusl] [dz] [sl] [W0ruak] 3 [W0rupj] [ak] [pj] [WOH0ru] 3 [W0ryig] [WOH0ry] [W0ryig] [WO0ryuaf] [OH] [%70] [3sl] [2fgjlx] [eti] [fgjlx] [H3dz] [WH0rysl] [ak] [6sfhjl] [etu] [etu] [Ewipsj] [sl] [Ewtu] [fx] [4jlxb] [eti] [etijlxb] [5j] z c b [wryikzcn] [wryihv] [gc] [8hkxv] [wru] u o a f [wrf] h k k [8n] [wrsl] [8fx] [hv] [$klxn] [Qetuklx] [klx] [Qetujb] [lx] 7 [QYeh] k Z v [GC] [QYegc] [GC] [3jkzb] [jkz] [wrujkz] [jkz] [hv] [jkz] 2 G [IGCety] [fx] [DZ] [fx] [fhkx] [wrtu] [dz] [sl] [DG7ak] [YIer] [sl] [YIDZer] [3f] H k x [WHruf] [Gj] [Hf] [Gj] [H0k] [Wu] [H0f] [Wu] [O0af] [Wu] 0 [WOru] [Ip] [Ou] [Ip] [O0a] r [Oru] 7 [ru] 3 [sf] [dg] [sf] [dg] [sf] [dg] [ad] [sf] [ad] [sf] [ad] [sf] [ps] [ad] [ps] [ad] [ps] [ad] [Oa] [Ip] [Ou] 3 7 0 W r y i O a d g H k z c V n [dg] [fh] [dg] [fh] [dg] [fh] [Sf] [dg] [Sf] [dg] [Sf] [dg] [Sp] [Pd] [Sp] [Pd] [Sp] [Pd] [Sp] [Po] [ip] [uo] [ip] [Po] [Sp] [Po] [ip] [uo] [ip] [Po] [Sp] 6 0 w e T u o p S f h j L v p d g [Ewypdgj] j [S6woh] g f [9eypsg] d g j [EJwydgz] z [E8fhz] l J [qetufjl] f j l [tuipx] z [Oryul] k l [etuoz] l [wetuk] j H [qeryj] j [ryij] h d [ryupf] p d g [Ewyipdgj] j [S6woh] g f [9eypsg] d g j [EJwydgz] z [E8fhz] l J [qetufjl] u p s [9tui] p f d [O30ys] a s [6yupd] 0 [ts] [5ruoa] 0 p [$e] t u p o i [W30yu] [WI30y] [WO9yu] [*T60eup] u T e 0 * 0 e T u p S f S p u T e [5ipsg] 8 q e [uf] [5yipd] w [tus] w [ra] [8tuos] w [yd] t [uof] [8yuo] w t y o [5ipsg] 8 q e [uf] [5yipd] w [ts] w [yd] [8uoaf] w t y u o [8a] w t y f [0f] G f [Dwru] [wruf] [3oafh] 5 [IG7] 0 [0uf] [$YDps] 8 ( e [IGps] [YI7ra] ( Q e a s a P a [3k] 7 0 w [rhk] a [0hk] [ra] [IGj] [up] [rfh] o [$Dpsj] ( [DGeps] t Y [Dps] Q e Q [(ra] [OH37af] 0 W r [OHiaf] [0u] [OH9yaf] [8t] [7rpfj] [6e] [%Wak] [6sfjl] 8 0 e [0ups] [ups] [etu] [ups] 2 [IGpsd] e [9y] [IG8tpsd] [7r] [IG6epsd] [5w] [$Qosfh] [4q] [30psdfj] [5adhk] 7 9 w [yoa] i [uoa] y [rpsfj] e [osfh] [*IGad] [riadg] [IGryad] [$Spfj] [QETSoh] [QETIPSG] [uoaf] [YDwroa] [wruoaf] [IDGp] [(Qr] Y I a a [7k] [2dgjz] [qey] [sgjl] [2adgk] [eti] [etipdgj] [OHd] [3ak] [%dz] [7fx] [0dz] [Wsl] r u 0 y r [Wsl] [0dz] [7sl] [3ak] 7 0 W r y [rpj] [Wak] [0pj] [OH7] 3 7 0 W r [yig] [OHr] [yig] [WO0ruaf] [%OH370af] [3sfjl] [2fjlx] [etyi] [etyifjlx] [H3dfz] [WH0rysfl] [WH0ryafk] [36sfhl] [etupsfh] [etuosfh] [36psfj] [sfhl] [etuo] [fx] [2jlxb] [jlc] [etyi] [jb] [lc] [25jlcb] [kzcn] [ryo] [whkzv] [gkc] [8hkxv] w t u t w [0wtafhk] [fhkx] [80wt] [hkxv] [$klxn] [Qetu] [jlxb] [7h] k Z v [GZCk] [YIer] [Zhkv] j [3b] z k j [wryuhv] [kz] [GC2] [hk] G [hk] [fx] [hk] [dz] [Gh] d [58sl] [Gh] s [58fx] [hj] f [GC] [jl] G [7dz] [Gj] d [7pj] d p [%H37afk] [%370] W r u [3u] O a f [WO0ryuaf] [WOH0ruaf] [W0rysfjl] [26fglx] [etyifgl] [fgl] [fgl] [H2dz] [Hdz] [Hdz] [H3dz] [Hdz] [Hdz] [H0sl] [Hsl] [Hsl] [WHryak] [Hak] [Hak] [6sfhl] [sfhl] [sfhl] [tupsfhl] [osfhl] [usfhl] [tsfhl] [sfhl] [sfhl] [Ewyipj] [sl] [Ewtu] [fjlx] f [2jlcb] [jlc] [jlc] [jlc] [jlc] [jlc] [tyijlc] [jlcb] [jlcb] [5jlcb] [jlcb] [jlcb] [kzvn] [kzvn] [kzvn] [wryohv] [gc] [hkv] 8 y u o a [8wf] a f h k [8fhkx] [wyfx] [hv] [GC8] [hv] [$QCkxn] [jlx] [Ietjlxb] 7 [YIerh] k Z v [GC] [gc] [GC] [3jkzb] [jkz] [wru] [hkzv] 2 [IGCtyjl] [fx] [DZ] [fx] [fhlx] [wtu] [dhz] [wtusl] [DGpak] [YIer] [SDGLj] [YIDGZerj] 3 [Hfkx] [uf] [fx] [YD] [DZ] [yd] [dz] [ts] [sl] [ra] [ak] [ep] [pj] [WO] [OH] [qi] [ig] [0u] [uf] [9y] [yd] [8t] [ts] [7r] [ra] [6e] [ep] [%W] [WO] [4q] [qi] [30] [0u] [29] [9y] 8 [8t] 7 [7r] 6 [6e] % [%W] 4 [4q] [%2370] [WE290u] [O2yuaf] [QIGC] [0ufx] [(YDZ] [0ufx] Q t u p s f j l x j l x b m x z [lm] 7 ( Q [ekn] t Y p s D G p s D G j l Z C x C [7r] [W30ru] [WO0ryuaf] [WO0ryuaf] [W30ru] [WO0ryuaf] [WO0ryuaf] [30uf] [@(YD] [30uf] [$QIG] [%WOH] [8tsl] [7rak] [^EPJ] [7rak] [(YDZ] [0ufx] [qigc] [0ufx] [(YDZ] [0ufx] [QIGC] [WOHV] [epjb] [EPJB] [rakn] [EPJB] [rakn] [tslm] [YDZ] [ufx] [%O70uaf] [QW30ru] Sheet Music Boss Version: Transpose -4 [sf] [dg] [sf] [dg] [sf] [dg] [ad] [sf] d a [sf] [ad] [sf] [ps] d a [ps] a d [ps] [ad] [Oa] [Ip] [Ou] 3 7 0 W [Ori] u u p s f [qtu] [3d] [Wyis] a [6s] [wtu] p s f j [eti] j [5j] [ryik] h g 8 h [wru] a f h [fk] [$s] [etu] j [D7ph] G [Yer] h [afj] 0 [wru] h [Ga] 9 [wru] f u o d 8 [wtus] d [7f] [Qeud] p [3a] 0 W [ru] n  m n n  m n b V c x 6 [etu] [etu] 3 [etu] [etu] 6 [etu] [etu] [3u] [etup] [etus] f 9 [eti] [etif] 0 d [Wyus] a [Wyu] [6s] [etu] [etu] [6p] s [etu] [etuf] j 9 [eti] [tij] e [5j] k [ryi] h [ryi] g h 8 [wr] u u [wr] a 8 [uf] [wr] h [wru] [Qk] [etu] [etuj] [7h] [YG] [Qe] [Yh] Q e [0j] [wru] h [wru] G 9 [wu] r u [wf] r [8d] [wtus] [ud] [wt] f 7 d [Qeu] [Qeup] [0a] [ryip] [ryip] [O30u] 0 p [0s] 9 [ipf] [ti] e [if] t e [O3] [0d] s [Wyu] [Wyua] [6uos] [wtu] [wtu] [6p] [tus] w [uf] [wt] [sgj] [eti] [etisgj] [5agj] k [ryi] h [ryi] g [8afh] u [wr] u [wr] [5a] [uf] [wr] h [wu] r $ [sfk] e [tu] j [etu] [D7p] [Yeth] G [Yetg] G [0afj] [wru] u [wrh] [9ad] [Gwru] f D [wru] f [oaf] 8 [wu] r d f [ud] [wr] s [Y7a] [Qr] S D [Qr] [Oaf] 3 [W0] 7 [70e] [3r] [70] W 7 0 3 [O70a] [70ps] [ad] 3 [O70a] [70f] g 9 [eti] [etif] d w s [ryi] [ryia] [8s] [wrud] [wruf] [8o] [wru] [wruoh] [9gc] [eti] [etifx] w [dz] [ryi] [sl] [ryidz] [fx] 8 [wtu] [wtuo] [uoa] 8 [wt] [wtf] [0f] G f [Dwru] [wruf] [0h] [Gwru] [wruf] [QD] [Yer] [YGer] [Qa] [Yer] [Yera] [wh] [ru] [ruh] [wh] [Gru] [ruf] [DG7pa] [Qr] [QYr] [QYI7rp] 7 [Gp] [Qrj] [OH3f] 7 [OH0f] [OHryf] [G0pj] [H7ak] [6sfhl] [6v] C c [wx] Z z [tul] [wl] k J [6j] H h [G9d] 9 [Ged] [Gtd] y [fh] e G [9j] [5dhk] [5j] H h [G9] g f [ryd] [9z] L l [5k] j h [*G] [Twrg] [TGwr] [$j] [ETuh] [ETGu] [7f] [QYDe] [QYef] [G7] [QYe] [QYek] [9gjz] [eti] [etil] [9dgk] [eti] [etij] [H0f] k [Wyfz] x z [Wy] l 0 [Wyl] z l [Wyk] 0 [Wyj] k j [WHy] 0 [Wyg] H g [Wyf] [ig] [PJ] [SL] $ [IG] [ak] [dz] [GC3z] [wry] [GCwryz] [$Lfx] [QEudkz] [QESJLu] [7dkz] [Qey] [Qey] [Qryadk] [dz] [Qet] [GC] [5kvn] [Qry] [Qrykvn] [6kvn] [TLeub] [TCeujb] [hxv] [$Cjb] [Teu] [Teu] [SL7j] [IGCey] [Ieyjb] [%Lx] [Iry] [Irykzn] [TCrijb] [HV] [Trihv] [HV] [$Vkn] [TIe] [TICejb] [30] [TIHVe] [GC] [TIegc] [GC] [GC9z] [TIefx] [GC] [TIefx] [dz] [*SLg] [Tri] [DGZ] [THrigc] [$GJLC] [QET] [QET][QET] [QET] $ [QET] [QET] * [QETV] H [GC] [QETc] g [GC] r I a G k z C x z T O a g H L Z c $ [QET] [QET] * [QET] [QET] [QETI] i I P [Qrya] d [QETS] s S g [QGry] H [QETJ] H J L [Qryz] c $ * Q W E T I O P S G H J L Musescore version : Transpose -2 [sf] [dg] [sf] [dg] [sf] [dg] [ad] [sf] [ad] [sf] [ad] [sf] [ps] [ad] [ps] [ad] [ps] [ad] [Oa] [Ip] [uO] 3 7 0 W [ruO] u p s [2i] p s f [qetu] [psf] [O3id] [WOyis] [Oia] [6u] o s [wrtu] e [tu] p s f [9p] s j [qet] [psj] [5psj] [wryoh] [ig] [8o] a f h [wru] w [ru] a f h [Qsfk] [etu] [sfj] [D7sh] [etpYG] h [0aj] d [wru] h [9oaG] [wr] f [8uod] [wrs] d [I7f] p [Qed] p [0a] [ry] u p a [30eryi] k z l k [W30ryu] z l k j H g f [6e] [etu] [etu] [30] [etu] [etu] [6e] [etu] [etu] [30u] [yup] [Oryis] [29f] [tuip] [tuipf] [30d] [Orys] [Oria] [6es] [rtuo] [rtuo] [6ep] [rtuos] [rtuof] [29j] [tuip] [tuipj] [5wj] [rioh] [ryiog] [8h] [rtuo] [rtuo] [5wa] [rtuof] [rtuoh] [$Qk] [Itup] [Itupj] [7h] [erYIG] [Yeroh] [30j] [ryup] [ryuah] [29G] [wry] [wryf] [8d] [wrtus] [wrtud] [7f] [Ieryd] [Ieryp] [30a] [ryup] [ryup] [30uf] [ryupj] [Oryisl] [29fx] [tuip] [tuipfx] [30dz] [Orysl] [Oriak] [6esl] [rtuo] [rtuo] [E5wyip] [sl] [E8tuo] [fx] [4qjb] [tuip] [tuipjb] [4qjb] [ryiokn] [ryiohv] [gc] [30hv] [ryo] [ryo] [6a] [rtupf] [rtuph] [$Qafk] [Itups] [Itupfj] [7D] [Ytoh] G [Ytpg] G [30dj] [wry] h [wrydh] a [29o] [wryG] [pf] [wryaD] f [8sf] [wryupd] [af] [wryupd] [os] [I7a] [Yrp] S [rpID] [O30f] [ruOH] [IOruj] [7rk] [ruOH] [Oruf] [30] [Oruf] [ruOG] [7rH] [Oruf] [Oruaf] [5dg] [tip] [tipf] [5ad] [tios] [ryioa] [8us] [tiod] [tuof] [8yo] [wtu] [wtuo] [5g] [tip] [tipf] [5d] [tios] [ryiod] [8f] [rtuo] [rtuo] 8 [ryuo] [rtuox] [0hx] C x [ruoaZ] D [ruofx] G [0hv] G [ruoGC] j [ruokx] h [QZ] [YIrj] H [rjYIZ] [kC] [YIDrjk] h [rYIG] f [Dk] a [0dkvn] [ruo] [ruokvn] [0dkvn] [Cruojb] [ruohkxv] [QCjb] [rhkYIZC] [riYG] [7D] a [erYIS] D [ryQIG] j [0OH] [Wyi] [yiWOH] [0OH] [Wyipj] [Wyiak] [6sl] [wtu] [wtu] [6s] [wtu] [wtu] [9G] [Qtu] [tuQG] [9G] [Qtuh] [Qtuj] [6k] [Qry] [Qry] [5d] [qrypj] [qryoh] [8IG] [Wrig] [rWIG] [Qpj] [Etoh] [tEIG] [7uf] [rQYD] [Qruf] [7IG] [rY] [Yrak] [29dz] [qet] [qetsfl] [29adk] [qey] [qetpsj] [30aOH] k [OHryuz] x z [tyupjl] [30] [Wtpjl] z l [OHryk] [30] [Wrisj] k j [tudWH] [30] [W0rpdg] [fh] [dg] [W0ysf] [29f] [tuipjl] [Hk] [tuipfjl] [kz] [H30dk] [Orys] [Oria] [6es] [rtuoj] H [rtuoj] k [E5wyip] s [E8tuo] f [4qpj] [tuif] d [tuipfj] g [4qpdj] [wryiak] [wryoh] [ig] [30oh] [wryah] [pG] [wryah] [sj] [6adk] h [rtupf] d [rtupf] h [$QGpsk] [Itups] [Itupfj] [7D] [Ytosh] G [Ytpsg] G [30pdj] [wry] [wryadh] [29] [wryaG] f [wryaD] f [8sfh] [Gwryudk] [fhj] [Gwryudk] [sfl] [G7aj] [QYGeraj] [Sfh] [QYDerj] k [30fH] [Wruk] j e H [ruWG] f e D [7rx] Z L [Wruk] j H [0ruG] f D [30x] Z L [Wruk] j e H [ruWG] f e D [7rf] [Wru] [Wru] O [sf] [dg] [sf] [dg] [sf] [dg] [ad] [sf] [ad] [sf] [ad] [sf] [ps] [ad] [ps] [ad] [ps] [ad] [Oa] [Ip] [uO] [3ryuO] 7 9 0 q r [Wi] e r y u i [rud] a [dg] [fh] [dg] [fh] [dg] [fh] [Sf] [dg] [Sf] [dg] [Sf] [dg] [PS] [ad] [PS] [ad] [PS] [ad] [fhPSJ] [oP] [ip] [uo] [ip] [oP] [PS] [oP] [ip] [uo] [ip] [oP] [PSh] [pag] [Sof] [6uoS] 0 w e E u T y u o p P [Sph] p d g [Ewigj] j [TSeuoh] g f [ypsg] d g j [Ewyigz] [gz] [Etugz] l J [qetufl] f j l [rpgx] z [Oufl] k l [eofz] l [wusk] j H [qtpj] j [0yoj] h d [eyupf] [69qep] d [%*W0g] [P59qwdgj] j [S6eofh] g f [9yipsg] d g j [J59wdgz] [gz] [E8wtgz] l J [48qfjl] f j l [7qergjx] z [W0rufl] k l [680efz] l [580wsk] j H [468qpj] h g [%390of] G H [6pfj] [Teru] [af] [5osg] 9 e t [ipsf] [5iod] [us] [ya] [8us] w [tisd] y [tosf] w [8yos] w t y [to] w [5osg] 9 e t [ipsf] [5iod] [uos] [id] [8of] w [th] [yh] [th] [wh] [8h] w [th] [yh] [tfh] [wj] [30fk] G o f [Duk] [Ik] [ufk] [ok] [30hk] a [Guk] [pk] [ufk] [ok] [$QDk] r [Ek] [rk] [Gtk] [rk] [7aj] [rh] [tG] [rf] [eaD] [Qa] [30h] r [wk] [uJ] [whk] [rl] [7hk] [ul] [Gpj] [uk] [ofh] [uj] [$QG] [rh] [tj] [yh] [tG] [rf] [7eD] w a Q [0paD] ( f 8 [7paG] % j 4 [30fgOH] [Wryi] [ryufWOH] [30dfOH] [WGrtupsj] [WHryuadk] [6sfjl] [etuoxv] [ZC] [zc] [Letuox] [lZ] [kz] [6jl] [ruoajl] [Hk] [hJ] [Gtuosj] [gH] [fh] [29dG] [Qety] [etypdQIG] [29pdIG] [0etuoafh] [QIGetpsj] [G5adk] [IGwryj] [gH] [fh] [wrydIG] [Sg] [sf] [5ad] [wrujz] L l [Iwryhk] j h [*G] [WTqrig] [qrWTIG] [$Qpj] [ET0oh] [0ETIG] [7uf] [er(QYD] [(Qeruf] [7IG] [(Qer] [(weak] [29dz] [qet] [qetsfl] [29adk] [qey] [qetpsj] [30aOH] k [OHryuz] x z [tyupjl] [30] [Wtpjl] z l [OHryk] [30] [Wriaj] k j [tusWH] [30u] [W0ripdg] [fh] [dg] [WO0tusf] [4qig] [^EPJ] [*TSL] No Transpose [37] [3u] 3 3 3 3 p 3 3 3 3 s 3 3 3 [2f] [qetujl] [Hk] [qetufjl] [kz] [H3dk] [W0rys] [W0rya] [6s] [0wetj] H [0wetj] k [6p] [0wets] [0wetf] [2pj] [qetyf] d [qetypfj] g [5pdj] [9werak] [9weroh] [ig] [18oh] [0wrtah] [pG] [0wrtah] [sj] [5adk] h [0wrtf] d [0wrtf] h [$Gsk] [etusfIG] [IGetusj] [7ah] [etsYIDG] [YIDetsh] [3aj] [ryoa] [ryoah] [2IG] [wrya] p [wryof] I [18od] [0wtps] o [I0wyd] u [I7f] [Qeryd] [Qeryp] [30af] g [eruf] d [erus] a [3up] y [W8tpj] [7r] [50wsl] [$Q] [49qfjx] [tuipfjlx] [Hk] [tuipfjlx] [kz] [H30dkz] [OHrydz] k [OHridz] k [6esl] k [rtuoj] f [rtuos] a [E5wyip] s [E18tuo] f [4psfj] [tuif] [pdj] [tuif] [pgj] [4qpdj] [wryiak] [wryoh] [ig] [30oh] [wryah] [pG] [wryah] [sj] [6adk] h [rtupf] d [rtupf] h [$Gfk] [Ietups] [Ietupfj] [7D] [YIerh] G [YIerg] G [30pj] [wryo] p [wryah] G [29f] [wryIG] f [wryoD] f [18fhkx] [Gwryukz] [hjx] [Gwryukz] [fl] [G7jk] [QYGerj] [fhL] [erjQYGZ] k [H30fx] [Wruk] j e H [ruWG] f e D [7rx] Z L [Wruk] j H [0ruG] f D [30x] Z L [Wruk] j e H [ruWG] f e D [7uf] [IG] [uf] [YD] [uf] [6eu] p s f [0d] [ruos] t [Y7eoa] S [ID] 7 [O3af] [Wru] [W7ru] 3 [Wru] [W7ru] [3uf] [YD] [uf] [OH] [$pj] [sl] [3ak] [PJ] [ak] [DZ] [$Q8fx] [GC] [370HV] [hv] [HV] [JB] [Itskn] Z Z [Oruax] [CZ] x L Z k L J l j G D s p I Y t e Q ( [r*TI] [3T] [7I] [0O] [Qa] W u         `;
+        let replacedStr = str.replace(/[\[\]]/g, '');
+        let array = replacedStr.split(' ');
+        let root = document.getElementById('root');
+        for (let i = 0; i < array.length; i++) {
+            let note = document.createElement('div');
+            note.className = 'note';
+            note.innerHTML = array[i];
+            root.appendChild(note);
+        }
+        document.body.addEventListener('keypress', function (e) {
+            let note = document.getElementsByClassName('note')[0];
+            let array = [];
+            for (let i = 0; i < note.innerHTML.length; i++) {
+                console.log(note.innerHTML.charAt(i));
+                if (keys[note.innerHTML.charAt(i)] == undefined) {
+                    continue;
+                }
+                console.log(keys[note.innerHTML.charAt(i)]);
+                array.push(keys[note.innerHTML.charAt(i)])
+            }
+            console.log(array);
+            synth.triggerAttackRelease(array, '2n');
+            if (note != null) {
+                // note.animate(keyframes, options).finished.then(() => {
+                note.remove();
+                // });
+            };
+        })
+    </script>
+</body>
+
+</html>
