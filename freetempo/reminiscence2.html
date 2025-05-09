@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/15.1.2/Tone.js">
+
+    </script>
+    <style>
+        body {
+            filter: invert(1);
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root">
+
+    </div>
+    <script>
+        const synth = new Tone.Sampler({
+            urls: {
+                "A0": "./sound/1.mp3",
+                "A#0": "./sound/2.mp3",
+                "B0": "./sound/3.mp3",
+                "C1": "./sound/4.mp3",
+                "C#1": "./sound/5.mp3",
+                "D1": "./sound/6.mp3",
+                "D#1": "./sound/7.mp3",
+                "E1": "./sound/8.mp3",
+                "F1": "./sound/9.mp3",
+                "F#1": "./sound/10.mp3",
+                "G1": "./sound/11.mp3",
+                "G#1": "./sound/12.mp3",
+                "A1": "./sound/13.mp3",
+                "A#1": "./sound/14.mp3",
+                "B1": "./sound/15.mp3",
+                "C2": "./sound/16.mp3",
+                "C#2": "./sound/17.mp3",
+                "D2": "./sound/18.mp3",
+                "D#2": "./sound/19.mp3",
+                "E2": "./sound/20.mp3",
+                "F2": "./sound/21.mp3",
+                "F#2": "./sound/22.mp3",
+                "G2": "./sound/23.mp3",
+                "G#2": "./sound/24.mp3",
+                "A2": "./sound/25.mp3",
+                "A#2": "./sound/26.mp3",
+                "B2": "./sound/27.mp3",
+                "C3": "./sound/28.mp3",
+                "C#3": "./sound/29.mp3",
+                "D3": "./sound/30.mp3",
+                "D#3": "./sound/31.mp3",
+                "E3": "./sound/32.mp3",
+                "F3": "./sound/33.mp3",
+                "F#3": "./sound/34.mp3",
+                "G3": "./sound/35.mp3",
+                "G#3": "./sound/36.mp3",
+                "A3": "./sound/37.mp3",
+                "A#3": "./sound/38.mp3",
+                "B3": "./sound/39.mp3",
+                "C4": "./sound/40.mp3",
+                "C#4": "./sound/41.mp3",
+                "D4": "./sound/42.mp3",
+                "D#4": "./sound/43.mp3",
+                "E4": "./sound/44.mp3",
+                "F4": "./sound/45.mp3",
+                "F#4": "./sound/46.mp3",
+                "G4": "./sound/47.mp3",
+                "G#4": "./sound/48.mp3",
+                "A4": "./sound/49.mp3",
+                "A#4": "./sound/50.mp3",
+                "B4": "./sound/51.mp3",
+                "C5": "./sound/52.mp3",
+                "C#5": "./sound/53.mp3",
+                "D5": "./sound/54.mp3",
+                "D#5": "./sound/55.mp3",
+                "E5": "./sound/56.mp3",
+                "F5": "./sound/57.mp3",
+                "F#5": "./sound/58.mp3",
+                "G5": "./sound/59.mp3",
+                "G#5": "./sound/60.mp3",
+                "A5": "./sound/61.mp3",
+                "A#5": "./sound/62.mp3",
+                "B5": "./sound/63.mp3",
+                "C6": "./sound/64.mp3",
+                "C#6": "./sound/65.mp3",
+                "D6": "./sound/66.mp3",
+                "D#6": "./sound/67.mp3",
+                "E6": "./sound/68.mp3",
+                "F6": "./sound/69.mp3",
+                "F#6": "./sound/70.mp3",
+                "G6": "./sound/71.mp3",
+                "G#6": "./sound/72.mp3",
+                "A6": "./sound/73.mp3",
+                "A#6": "./sound/74.mp3",
+                "B6": "./sound/75.mp3",
+                "C7": "./sound/76.mp3",
+                "C#7": "./sound/77.mp3",
+                "D7": "./sound/78.mp3",
+                "D#7": "./sound/79.mp3",
+                "E7": "./sound/80.mp3",
+                "F7": "./sound/81.mp3",
+                "F#7": "./sound/82.mp3",
+                "G7": "./sound/83.mp3",
+                "G#7": "./sound/84.mp3",
+                "A7": "./sound/85.mp3",
+                "A#7": "./sound/86.mp3",
+                "B7": "./sound/87.mp3",
+                "C8": "./sound/88.mp3",
+            },// envelope: {
+            //     attack: 0.1,    // 소리가 빠르게 시작
+            //     decay: 0.3,     // 일정 시간 동안 감소
+            //     sustain: 1,     // 지속 시간 최대
+            //     release: 3      // 키를 떼면 3초 동안 소리가 서서히 사라짐
+            // },
+            onload: () => {
+                console.log("All samples loaded");
+            }
+        }).toDestination();
+        const now = Tone.now();
+        const keys = {
+            '1': 'C2',
+            '!': 'C#2',
+            '2': 'D2',
+            '@': 'D#2',
+            '3': 'E2',
+            '4': 'F2',
+            '$': 'F#2',
+            '5': 'G2',
+            '%': 'G#2',
+            '6': 'A2',
+            '^': 'A#2',
+            '7': 'B2',
+            '8': 'C3',
+            '*': 'C#3',
+            '9': 'D3',
+            '(': 'D#3',
+            '0': 'E3',
+            'q': 'F3',
+            'Q': 'F#3',
+            'w': 'G3',
+            'W': 'G#3',
+            'e': 'A3',
+            'E': 'A#3',
+            'r': 'B3',
+            't': 'C4',
+            'T': 'C#4',
+            'y': 'D4',
+            'Y': 'D#4',
+            'u': 'E4',
+            'i': 'F4',
+            'I': 'F#4',
+            'o': 'G4',
+            'O': 'G#4',
+            'p': 'A4',
+            'P': 'A#4',
+            'a': 'B4',
+            's': 'C5',
+            'S': 'C#5',
+            'd': 'D5',
+            'D': 'D#5',
+            'f': 'E5',
+            'g': 'F5',
+            'G': 'F#5',
+            'h': 'G5',
+            'H': 'G#5',
+            'j': 'A5',
+            'J': 'A#5',
+            'k': 'B5',
+            'l': 'C6',
+            'L': 'C#6',
+            'z': 'D6',
+            'Z': 'D#6',
+            'x': 'E6',
+            'c': 'F6',
+            'C': 'F#6',
+            'v': 'G6',
+            'V': 'G#6',
+            'b': 'A6',
+            'B': 'A#6',
+            'n': 'B6',
+            'm': 'C7',
+            'N': 'C#7',
+        }
+        let keyframes = [
+            { opacity: 1 },
+            { opacity: 0.2 },
+            { opacity: 0 }
+        ]
+        let options = {
+            delay: 0,
+            duration: 250,
+            easing: "ease-in",
+            iterations: 1,
+            fill: "forwards"
+        }
+        let str = `[dgjx] z v [odkx] z l [pdhk] l k [osh] h l z [isjx] z v [Huax] [zn] [xm] [pzn] f [kv] h x [Jodgz] [Ptfl] [ishjx] z v [odkx] z l [pdhk] l z [odh] f h [ij] s j g x [ypdgl] [uak] [6sfj] 0 e r t o r t 6 0 e r t o t r 6 0 e r t o r t 6 [9ipf] e y [ipd] e [iah] y [woaf] y o [ad] y [ah] o [6yoa] 0 e [yos] 0 e [yoa] [5yo] w [tu] r [qopf] t i [opd] t [ah] i t [O0df] r u [dk] r [ufl] [6dk] 0 e [ah] r y o f u o y t y u o [qpf] t i d t [ah] i [waf] y o [ad] [ah] o y [6yoa] 0 e [yos] r t [yoa] [5yo] w t [uo] [qtp] i [opf] t i [O0ys] d f [6ya] 0 [eyo] 0 p [6yoa] [qtp] [if] [of] t i o [wp] [yf] a o y o [edh] u [ad] p [sf] u [ad] e u p s u a d [qop] t [pf] i p t f [wa] y h o g y [8osf] w t [ydk] [fl] [dk] [ah] y f [qp] t i [pf] o p f [wa] y o [adh] o [adg] [6osf] 0 e [tdk] [fl] [wdk] u [ah] o f [Qps] t [up] s [qis] t [pd] i [sf] [6yoa] 0 e r [6eiTP] [fx] [9yip] e [ipf] 8 7 6 [5oah] [2ag] f [8od] w [ts] [yd] u [of] o 6 0 e r t o s o [9i] e y p e f y [O0yd] r [ydk] [esh] u p [of] u [Pwid] [QOus] [qosf] t o i s d [Oqiaf] [0uG] H j k [edz] u [pfl] [dk] [fl] w [ush] o [sh] [qsj] t [id] s [9ips] e [yipd] [yd] [uf] [30] [O30uf] [30] [30pIG] [30] [30aOH] [30] [29sgj] [egjx] [ygjz] i [5wsgj] u [gkx] a [gjz] w W [6edhk] u [pfhl] s [dhk] t [fh] [6e] s [5wsf] o [4qsj] i [gjx] [gjz] u [30kHV] y a [fx] [kn] [lm] [6ekzvn] u [kzv] [ad] [pshlx] [5wgz] [$Qfl] [4qsgj] 8 q [fx] t [dz] q [5wsgj] t [hv] o [gc] [6ehlx] u [pzn] s d [xm] [5wzn] u [olv] [4qjb] t [ifx] [dz] w [sl] q [dk] 0 [29sgj] 6 [9sgj] [sl] [dz] [?7gjx] [30sH] d f h [4qsj] 8 q [tfjx] [ifjz] t [5dj] 9 w [ygx] [ohz] [6dk] 0 e [ydk] u [pfl] [dk] 6 [0sh] e [yf] o [sh] [4qsj] [fjx] i [djz] t [30kV] r O [fx] [kn] [lm] [6ekn] 0 [kv] [ahx] o [fl] [J5whz] [8tfjx] w [qifhx] t [djz] i [sjl] [H30fx] [kn] [fx] [dz] [6ekzvn] [kv] [hx] [G9ydl] [9qyip] s y d [O0yaf] d s d [6yoa] 0 e [ys] e [ya] [6oTP] [9ti] p s d f [0ryI] [uO] a s [6ya] e t [up] 0 [eu] 6 0 e t [up] 6 0 t [^Ey] q E y p q y [^yp] q E y [qp] y [6yoa] 0 e [tp] e [ya] [6us] 0 e [of] 0 [ah] e [^dl] q E [sj] q [^Eqsj] [gl] x [60ehz]
+        `;
+        let replacedStr = str.replace(/[\[\]]/g, '');
+        let array = replacedStr.split(' ');
+        let root = document.getElementById('root');
+        for (let i = 0; i < array.length; i++) {
+            let note = document.createElement('div');
+            note.className = 'note';
+            note.innerHTML = array[i];
+            root.appendChild(note);
+        }
+        document.body.addEventListener('keypress', function (e) {
+            let note = document.getElementsByClassName('note')[0];
+            let array = [];
+            for (let i = 0; i < note.innerHTML.length; i++) {
+                console.log(note.innerHTML.charAt(i));
+                if (keys[note.innerHTML.charAt(i)] == undefined) {
+                    continue;
+                }
+                console.log(keys[note.innerHTML.charAt(i)]);
+                array.push(keys[note.innerHTML.charAt(i)])
+            }
+            console.log(array);
+            synth.triggerAttackRelease(array, '2n');
+            if (note != null) {
+                // note.animate(keyframes, options).finished.then(() => {
+                note.remove();
+                // });
+            };
+        })
+    </script>
+</body>
+
+</html>
